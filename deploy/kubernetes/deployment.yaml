@@ -23,10 +23,9 @@ spec:
         - containerPort: 8080
         volumeMounts:
           - name: config
-            mountPath: /microst.yaml
+            mountPath: /app
             readOnly: true
       volumes:
         - name: config
           secret:
             secretName: microst
-          
