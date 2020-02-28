@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/jphuc96/microst/pkg/app"
 	"github.com/jphuc96/microst/pkg/db/mongodb"
 	"github.com/labstack/echo/v4"
 	log "github.com/sirupsen/logrus"
@@ -11,8 +10,8 @@ import (
 )
 
 func main() {
-	app.InitConfig()
-	viper.SetConfigFile("microst.yaml")
+	// app.InitConfig()
+	viper.SetConfigFile("/app/microst.yaml")
 
 	uri := viper.GetString("mongodb.uri")
 
