@@ -13,5 +13,7 @@ jobs:
     - name: Build the Docker image
       run: docker build -t jphuc96/microst:latest .
     - name: Push Docker image
-      run: docker push jphuc96/microst:latest
+      run: |
+        docker login --user ${{ secrets.DOCKER_USER }} --password ${{ secrets.DOCKER_PASSWORD }}
+        docker push jphuc96/microst:latest
       
