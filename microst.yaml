@@ -1,0 +1,2 @@
+mongodb:
+  uri: "mongodb://microst:microst@mongodb.mongodb.svc.cluster.local:27017/microst"

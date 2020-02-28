@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: microst
+  namespace: microst-stag
+spec:
+  selector:
+    app: microst
+  ports:
+  - port: 80
+    targetPort: 8080

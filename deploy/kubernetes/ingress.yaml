@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: microst
+  namespace: microst-stag
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: microst-stag.phuc.wtf
+    http:
+      paths:
+      - backend:
+          serviceName: microst
+          servicePort: 80
+        path: /
+  tls:
+  - hosts:
+    - microst-stag.phuc.wtf
+    secretName: microst-stag.phuc.wtf-tls

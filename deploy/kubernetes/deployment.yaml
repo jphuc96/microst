@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microst
+spec:
+  selector:
+    matchLabels:
+      app: microst
+  template:
+    metadata:
+      labels:
+        app: microst
+    spec:
+      containers:
+      - name: microst
+        image: jphuc96/microst:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          - name: config
+            mountPath: /microst.yaml
+            readOnly: true
+      volumes:
+        - name: config
+          secret:
+            secretName: microst
+          
